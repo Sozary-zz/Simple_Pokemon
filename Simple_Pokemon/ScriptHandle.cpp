@@ -2,7 +2,7 @@
 
 using namespace std;
 
-ScriptHandle::ScriptHandle():m_content{MsgBox()}
+ScriptHandle::ScriptHandle():m_msgbox(nullptr)
 {
 }
 
@@ -23,7 +23,7 @@ void ScriptHandle::loadScript(Script script)
 	}
 
 }
-void ScriptHandle::executeHeap(MsgBox& msgBox,bool* wait)
+void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 {	
 	ifstream fichier("data/dialogues.dial", ios::in);
 	//creer un objet msgBox
@@ -33,27 +33,27 @@ void ScriptHandle::executeHeap(MsgBox& msgBox,bool* wait)
 		file.push_back(tmp);
 	fichier.close();
 
-	m_content.msgBox = msgBox;
+	m_msgbox = msgBox;
 	
 	for (int i = 0; i < m_script_heap.instruction_list.size(); ++i)
 	{
 		if (m_script_heap.instruction_list[i].script_type == "01")//un dialogue
 		{
-			m_content.msgBox.addContent(file[hexToInt(m_script_heap.instruction_list[i].param)]);
+			m_msgbox->addContent(file[hexToInt(m_script_heap.instruction_list[i].param)]);
 			*wait = true;
 			
 		}
 	}
 
-	m_content.msgBox.setDrawable(true);
+	m_msgbox->setDrawable(true);
 	
 }
 void ScriptHandle::next_action(bool* wait)
-{
+{	
 	
-	m_content.msgBox.changeMsg();
-	if (m_content.msgBox.isFinish())
-		*wait = false;
+	/*m_msgbox->changeMsg();
+	if (m_msgbox->isFinish())
+		*wait = false;*/
 }
 ScriptHandle::~ScriptHandle()
 {

@@ -3,11 +3,7 @@
 #include "MsgBox.h"
 #include <fstream>
 #include <sstream>
-struct HANDLER
-{
-	MsgBox& msgBox;
 
-};
 
 struct ScriptHeap
 {
@@ -22,12 +18,12 @@ class ScriptHandle
 public:
 	ScriptHandle();
 	void loadScript(Script); // le script  DOIT  forcément etre trié (une pile, c est une pile, un point c est tout)
-	void executeHeap(MsgBox&,bool*); //  d autres param incoming!
+	void executeHeap(MsgBox*,bool*); //  d autres param incoming!
 	void next_action(bool*);
 	~ScriptHandle();
 private:
 	ScriptHeap m_script_heap;
-	HANDLER m_content;
+	MsgBox* m_msgbox;
 private:
 	int hexToInt(std::string);
 };

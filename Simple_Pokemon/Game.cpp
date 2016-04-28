@@ -108,7 +108,7 @@ void Game::handleScripts(Keyboard::Key key)
 						
 						m_current.loadScript(m_scripts[i]); // on gère CE script
 		
-						m_current.executeHeap(m_msg_box, &m_must_wait); // on démarre son execution
+						m_current.executeHeap(&m_msg_box, &m_must_wait); // on démarre son execution
 						
 				}
 				else
