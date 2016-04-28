@@ -1,0 +1,11 @@
+1 ligne <==> 1 perso
+chaque action dfélimité par ':'
+les offsets 0x00 sont ceux d idebntification (3 et 4 eme bits pour la positionX sur la carte, les deux dernier la posY)
+les offsets 0x01 sont ceux de dialogues (les deux derniers bits pour l id du dial)
+les offsets 0x02 sont ceux des mouvements (3 et 4 eme bits == nb de mouvements, deux derniers direction (00->droite,01->bas,02->gauche,03->haut))
+les offsets 0x03 sont ceux pour les tetes de personnages (les 3 et 4eme bits pour son apparence, les deux derniers pour son orientation)
+les offsets 0x04 sont ceux pour les séquences initiales de mouvements (deux derniers bits pour l id dans le fichier deplacement initiaux)
+
+/!\ Ordre de lecture des instructions:
+
+-> 0x00 -> 0x03 -> 0x04  -> reste

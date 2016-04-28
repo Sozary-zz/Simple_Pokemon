@@ -1,0 +1,34 @@
+#pragma once
+#include "ScriptParser.hpp"
+#include "MsgBox.h"
+#include <fstream>
+#include <sstream>
+struct HANDLER
+{
+	MsgBox& msgBox;
+
+};
+
+struct ScriptHeap
+{
+	Offset identification; // 0x00 ID du perso
+	Offset aspect; // 0x03 Tete perso, position perso
+	Offset initial_raw_sequence; // 0x04 les mouvements de bases
+
+	std::vector<Offset> instruction_list; // le reste
+};
+class ScriptHandle
+{
+public:
+	ScriptHandle();
+	void loadScript(Script); // le script  DOIT  forcément etre trié (une pile, c est une pile, un point c est tout)
+	void executeHeap(MsgBox&,bool*); //  d autres param incoming!
+	void next_action(bool*);
+	~ScriptHandle();
+private:
+	ScriptHeap m_script_heap;
+	HANDLER m_content;
+private:
+	int hexToInt(std::string);
+};
+
