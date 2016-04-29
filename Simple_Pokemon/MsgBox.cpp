@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-MsgBox::MsgBox() :m_can_be_drawn(false), m_texte(), m_next(8,3), m_draw_next(false), m_finished(false)
+MsgBox::MsgBox() :m_can_be_drawn(false), m_texte(), m_next(8,3), m_draw_next(false), m_finished(false), m_enable_next_time(true)
 {
 	m_surface_texture.loadFromFile("tiles/msgbox.png");
 	m_surface.setTexture(m_surface_texture);
@@ -35,7 +35,6 @@ void MsgBox::addContent(string text)
 {
 	
 	format(text);
-	cout << "New perso" << endl;
 	m_internal_clock.restart();
 	if (m_buffer.size() % 2 != 0) // pour avoir des msgbox complets
 		m_buffer.push_back("");
@@ -73,18 +72,22 @@ void MsgBox::setDrawable(bool state)
 void MsgBox::changeMsg()
 {		
 		m_internal_clock.restart();
-		if (m_finished)
+		if (!m_enable_next_time) // on doit relancer la prochaine fois?
+		{
+			m_enable_next_time = true;
+			m_finished = true;
 			m_can_be_drawn = false;
+		}
+			
 
 		if (m_buffer.size() > 0)
 		{
-			display();
+			
 			for (int i = 0; i < 2; ++i)
 			{
 				m_texte[i].setString(m_buffer[0]);
 				m_buffer.erase(m_buffer.begin());
 			}
-			
 			if (m_buffer.size() > 0)
 			{
 				if (m_buffer.size() % 2 != 0) 
@@ -94,8 +97,8 @@ void MsgBox::changeMsg()
 				
 			else
 			{
+				m_enable_next_time = false;
 
-				m_finished = true;
 			}
 				
 
@@ -121,7 +124,7 @@ sf::Int32 MsgBox::getElapsed() const
 
 void MsgBox::clear()
 {
-	m_can_be_drawn=false;   m_draw_next=false; m_finished=false;
+	m_can_be_drawn = false;   m_draw_next = false; m_finished = false; m_enable_next_time=true;
 	m_buffer.clear();
 	m_texte->setString("");
 }
@@ -173,9 +176,3 @@ void MsgBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 }
 
-void MsgBox::display()
-{
-	for (int i = 0; i < m_buffer.size(); ++i)
-		cout << m_buffer[i] << "|"<<endl;
-	cout <<"/"<< endl;
-}

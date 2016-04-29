@@ -54,10 +54,16 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 }
 void ScriptHandle::next_action(bool* wait)
 {	
+
 	m_msgbox->changeMsg();
 	if (m_msgbox->isFinish())
+	{
 		*wait = false;
-	m_msgbox = nullptr;
+		m_msgbox = nullptr;
+	}
+	else
+		*wait = true;
+
 }
 ScriptHandle::~ScriptHandle()
 {

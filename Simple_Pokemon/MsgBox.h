@@ -32,12 +32,12 @@ private:
 	bool m_finished;
 
 	bool m_can_be_drawn;
+
+	bool m_enable_next_time;
 private:
 	void format(std::string);
 	virtual void draw(sf::RenderTarget&, sf::RenderStates ) const;
 
 
-private: // test
-	void display();
 };
 
