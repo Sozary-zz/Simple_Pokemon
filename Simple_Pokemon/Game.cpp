@@ -116,7 +116,12 @@ void Game::handleScripts(Keyboard::Key key)
 					}
 				}
 				else
+				{
 					m_current.next_action(&m_must_wait);
+					if (!m_must_wait)
+						m_msg_box.clear();
+				}
+					
 						
 		}
 	}

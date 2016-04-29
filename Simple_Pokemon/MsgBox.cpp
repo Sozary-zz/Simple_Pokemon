@@ -33,13 +33,16 @@ bool MsgBox::canBeDrawn() const
 
 void MsgBox::addContent(string text)
 {
+	
 	format(text);
+	cout << "New perso" << endl;
 	m_internal_clock.restart();
 	if (m_buffer.size() % 2 != 0) // pour avoir des msgbox complets
 		m_buffer.push_back("");
 
 	if (m_buffer.size() > 0)
 	{
+	
 		for (int i = 0; i < 2; ++i)
 		{
 			m_texte[i].setString(m_buffer[0]);
@@ -75,15 +78,26 @@ void MsgBox::changeMsg()
 
 		if (m_buffer.size() > 0)
 		{
+			display();
 			for (int i = 0; i < 2; ++i)
 			{
 				m_texte[i].setString(m_buffer[0]);
 				m_buffer.erase(m_buffer.begin());
 			}
+			
 			if (m_buffer.size() > 0)
+			{
+				if (m_buffer.size() % 2 != 0) 
+					m_buffer.push_back("");
 				m_draw_next = true;
+			}
+				
 			else
+			{
+
 				m_finished = true;
+			}
+				
 
 		}
 		else
@@ -104,6 +118,13 @@ sf::Int32 MsgBox::getElapsed() const
 }
 
 
+
+void MsgBox::clear()
+{
+	m_can_be_drawn=false;   m_draw_next=false; m_finished=false;
+	m_buffer.clear();
+	m_texte->setString("");
+}
 
 MsgBox::~MsgBox()
 {
@@ -150,4 +171,11 @@ void MsgBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	if (m_draw_next)
 		target.draw(m_next,states);
 
+}
+
+void MsgBox::display()
+{
+	for (int i = 0; i < m_buffer.size(); ++i)
+		cout << m_buffer[i] << "|"<<endl;
+	cout <<"/"<< endl;
 }

@@ -4,6 +4,12 @@ using namespace std;
 
 ScriptHandle::ScriptHandle():m_msgbox(nullptr)
 {
+	ifstream fichier("data/dialogues.dial", ios::in);
+	//creer un objet msgBox
+	string tmp;
+	while (getline(fichier, tmp))
+		m_file.push_back(tmp);
+	fichier.close();
 }
 
 void ScriptHandle::loadScript(Script script)
@@ -25,26 +31,23 @@ void ScriptHandle::loadScript(Script script)
 }
 void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 {	
-	ifstream fichier("data/dialogues.dial", ios::in);
-	//creer un objet msgBox
-	vector<string> file;
-	string tmp;
-	while (getline(fichier, tmp))
-		file.push_back(tmp);
-	fichier.close();
+	
 
 	m_msgbox = msgBox;
 	
 	for (int i = 0; i < m_script_heap.instruction_list.size(); ++i)
 	{
+	
 		if (m_script_heap.instruction_list[i].script_type == "01")//un dialogue
 		{
-			m_msgbox->addContent(file[hexToInt(m_script_heap.instruction_list[i].param)]);
+		
+			m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[i].param)]);
 			m_msgbox->setDrawable(true);
 			*wait = true;
 			
 		}
 	}
+	m_script_heap = {};
 
 
 	
@@ -54,6 +57,7 @@ void ScriptHandle::next_action(bool* wait)
 	m_msgbox->changeMsg();
 	if (m_msgbox->isFinish())
 		*wait = false;
+	m_msgbox = nullptr;
 }
 ScriptHandle::~ScriptHandle()
 {

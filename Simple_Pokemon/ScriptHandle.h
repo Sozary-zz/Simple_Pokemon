@@ -24,6 +24,7 @@ public:
 private:
 	ScriptHeap m_script_heap;
 	MsgBox* m_msgbox;
+	std::vector<std::string> m_file;
 private:
 	int hexToInt(std::string);
 };

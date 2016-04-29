@@ -13,6 +13,8 @@ public:
 	void changeMsg();
 	bool isFinish() const;
 	sf::Int32 getElapsed() const;
+
+	void clear();
 	~MsgBox();
 private:
 	sf::Sprite m_surface;
@@ -33,5 +35,9 @@ private:
 private:
 	void format(std::string);
 	virtual void draw(sf::RenderTarget&, sf::RenderStates ) const;
+
+
+private: // test
+	void display();
 };
 
