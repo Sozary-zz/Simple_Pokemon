@@ -40,20 +40,20 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		if (m_script_heap.instruction_list[i].script_type == "01")//un dialogue
 		{
 			m_msgbox->addContent(file[hexToInt(m_script_heap.instruction_list[i].param)]);
+			m_msgbox->setDrawable(true);
 			*wait = true;
 			
 		}
 	}
 
-	m_msgbox->setDrawable(true);
+
 	
 }
 void ScriptHandle::next_action(bool* wait)
 {	
-	
-	/*m_msgbox->changeMsg();
+	m_msgbox->changeMsg();
 	if (m_msgbox->isFinish())
-		*wait = false;*/
+		*wait = false;
 }
 ScriptHandle::~ScriptHandle()
 {

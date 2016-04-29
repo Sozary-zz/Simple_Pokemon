@@ -12,10 +12,9 @@ public:
 	void setDrawable(bool);
 	void changeMsg();
 	bool isFinish() const;
+	sf::Int32 getElapsed() const;
 	~MsgBox();
 private:
-	bool m_can_be_drawn;
-
 	sf::Sprite m_surface;
 	sf::Texture m_surface_texture;
 	sf::CircleShape m_next;
@@ -24,9 +23,13 @@ private:
 	sf::Text m_texte[2]; // que deux lignes de texte
 	std::vector<std::string> m_buffer; // le surplus de ligne
 
+	sf::Clock m_internal_clock;
+
 	bool m_draw_next;
 
 	bool m_finished;
+
+	bool m_can_be_drawn;
 private:
 	void format(std::string);
 	virtual void draw(sf::RenderTarget&, sf::RenderStates ) const;

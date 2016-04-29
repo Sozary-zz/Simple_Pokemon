@@ -34,7 +34,7 @@ bool MsgBox::canBeDrawn() const
 void MsgBox::addContent(string text)
 {
 	format(text);
-
+	m_internal_clock.restart();
 	if (m_buffer.size() % 2 != 0) // pour avoir des msgbox complets
 		m_buffer.push_back("");
 
@@ -45,11 +45,17 @@ void MsgBox::addContent(string text)
 			m_texte[i].setString(m_buffer[0]);
 			m_buffer.erase(m_buffer.begin());
 		}
+		
 		if (m_buffer.size() > 0)
 		{
 			m_draw_next = true;
 		}
+		else
+			m_finished = true;
+		
 	}
+	else
+		m_finished = true;
 	
 }
 
@@ -62,34 +68,39 @@ void MsgBox::setDrawable(bool state)
 }
 
 void MsgBox::changeMsg()
-{
-	if (m_finished)
-		m_can_be_drawn = false;
+{		
+		m_internal_clock.restart();
+		if (m_finished)
+			m_can_be_drawn = false;
 
-	if (m_buffer.size() > 0)
-	{
-		for (int i = 0; i < 2; ++i)
-		{
-			m_texte[i].setString(m_buffer[0]);
-			m_buffer.erase(m_buffer.begin());
-		}
 		if (m_buffer.size() > 0)
-			m_draw_next = true;
+		{
+			for (int i = 0; i < 2; ++i)
+			{
+				m_texte[i].setString(m_buffer[0]);
+				m_buffer.erase(m_buffer.begin());
+			}
+			if (m_buffer.size() > 0)
+				m_draw_next = true;
+			else
+				m_finished = true;
+
+		}
 		else
-			m_draw_next = false;
-		
-	}
-	else
-	{
-		m_finished = true;
-		m_can_be_drawn = false;
-	}
+		{
+			m_finished = true;
+		}	
 		
 }
 
 bool MsgBox::isFinish() const
 {
 	return (m_finished);
+}
+
+sf::Int32 MsgBox::getElapsed() const
+{
+	return m_internal_clock.getElapsedTime().asMilliseconds();
 }
 
 

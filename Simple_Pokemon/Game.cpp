@@ -54,8 +54,11 @@ void Game::handleScripts(Keyboard::Key key)
 	{
 	case Keyboard::A:
 
-		
-				if (!m_must_wait)
+		if (m_msg_box.getElapsed() > 300)
+		{
+
+				
+				if (!m_must_wait  )
 				{
 					auto dir = m_joueur.getDir();
 					auto pos = m_joueur.getPos();
@@ -85,41 +88,37 @@ void Game::handleScripts(Keyboard::Key key)
 						if (distanceE(pos.x, pos.y, m_scripts[i].position.x, m_scripts[i].position.y) == 0)
 						{
 
-						string path = "data/personnages/" + m_scripts.getID(i);
-						switch (dir)
-						{
-						case DROITE:
-							path += "_02.png";
-							break;
-						case BAS:
-							path += "_03.png";
-							break;
-						case GAUCHE:
-							path += "_00.png";
-							break;
-						case HAUT:
-							path += "_01.png";
-							break;
+							string path = "data/personnages/" + m_scripts.getID(i);
+							switch (dir)
+							{
+							case DROITE:
+								path += "_02.png";
+								break;
+							case BAS:
+								path += "_03.png";
+								break;
+							case GAUCHE:
+								path += "_00.png";
+								break;
+							case HAUT:
+								path += "_01.png";
+								break;
+							}
+
+
+							m_scripts[i].m_perso_path = path; // on change d'image
+							applyTexture();
+
+							m_current.loadScript(m_scripts[i]); // on gère CE script
+
+							m_current.executeHeap(&m_msg_box, &m_must_wait); // on démarre son execution
 						}
-
-
-						m_scripts[i].m_perso_path = path; // on change d'image
-						applyTexture();
-						
-						m_current.loadScript(m_scripts[i]); // on gère CE script
-		
-						m_current.executeHeap(&m_msg_box, &m_must_wait); // on démarre son execution
-						
+					}
 				}
 				else
-				
 					m_current.next_action(&m_must_wait);
-				
-				
-
-			}
+						
 		}
-
 	}
 	
 }
