@@ -97,6 +97,7 @@ void MsgBox::changeMsg()
 				
 			else
 			{
+				m_draw_next = false;
 				m_enable_next_time = false;
 
 			}

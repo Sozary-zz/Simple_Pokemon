@@ -24,7 +24,7 @@
   <Class Name="Game" Collapsed="true">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAgAAACAACAAAAAAEQAAgIAjIAAAAAAAAAlA0QAg=</HashCode>
+      <HashCode>CAAAAgAAACAACAAAAAAEQAAgIAjIAAAACAQAAlA0QAg=</HashCode>
       <FileName>Game.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,7 +38,7 @@
   <Class Name="ScriptHandle" Collapsed="true">
     <Position X="9.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQgAAAAAgAAAAAAAAAAAAAAAAAgAAAAABAAAAEAAAAA=</HashCode>
+      <HashCode>AQgAAAAAgAAAAAAAAAAAAACAAAgAEAAABAAAAEAgAAA=</HashCode>
       <FileName>ScriptHandle.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="MsgBox" Collapsed="true">
     <Position X="6" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAEABgAAAAAACAQAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAgQALAEAhgIAAAIADAQAAABEAAAAhEAAAAAAAAA=</HashCode>
       <FileName>MsgBox.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -98,7 +98,7 @@
       <FileName>Utility.hpp</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="Offset" Collapsed="true">
+  <Struct Name="Offset">
     <Position X="6" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAACQAAAACAAAQAAABAAAAAAAAAAAAAAAAA=</HashCode>
