@@ -69,6 +69,7 @@
     <ClCompile Include="..\..\Animation\SFML Project Template (VS2015)1\SFML Project Template (VS2015)1\AnimatedSprite.cpp" />
     <ClCompile Include="..\..\Animation\SFML Project Template (VS2015)1\SFML Project Template (VS2015)1\Animation.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="FlagParser.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapParser.cpp" />
@@ -86,6 +87,7 @@
     <ClInclude Include="..\..\Animation\SFML Project Template (VS2015)1\SFML Project Template (VS2015)1\AnimatedSprite.hpp" />
     <ClInclude Include="..\..\Animation\SFML Project Template (VS2015)1\SFML Project Template (VS2015)1\Animation.hpp" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="FlagParser.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="MsgBox.h" />
     <ClInclude Include="Player.h" />
