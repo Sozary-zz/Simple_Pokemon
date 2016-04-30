@@ -2,10 +2,12 @@
 
 #include <fstream>
 #include <vector>
+#include <string>
 
 struct Flag
 {
-
+	bool activated;
+	std::string ID;
 };
 class FlagParser
 {
