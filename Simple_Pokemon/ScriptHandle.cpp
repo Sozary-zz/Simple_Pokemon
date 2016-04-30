@@ -41,7 +41,7 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		if (m_script_heap.instruction_list[i].script_type == "01")//un dialogue
 		{
 		
-			m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[i].param)]);
+			m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[i].param)]); // pbm scripts
 			m_msgbox->setDrawable(true);
 			*wait = true;
 			
