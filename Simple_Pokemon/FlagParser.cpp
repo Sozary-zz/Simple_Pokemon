@@ -12,9 +12,7 @@ FlagParser::FlagParser()
 		m_flags.push_back(Flag{
 		(tmp[2] == '1'),
 		tmp.substr(3,3)
-		
 		});
-		
 	}
 
 }
