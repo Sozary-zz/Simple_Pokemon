@@ -1,0 +1,11 @@
+0x000
+a
+0xFFF
+
+donc 4095 flags possibles
+MAIS on mettra 0x[STATE]000
+où state peut valoir 0 ou 1 [désactivé/activé]
+on a donc
+0x0000
+a
+0x0FFF
