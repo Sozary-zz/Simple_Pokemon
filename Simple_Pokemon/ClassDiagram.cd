@@ -28,8 +28,8 @@
       <FileName>Game.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Player" Collapsed="true">
-    <Position X="7.75" Y="1.5" Width="1.5" />
+  <Class Name="Player">
+    <Position X="8.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAIAAAAAAAIAAIAAAAIIAAAAABACAQAAABA=</HashCode>
       <FileName>Player.h</FileName>
@@ -100,6 +100,10 @@
   </Struct>
   <Struct Name="Offset">
     <Position X="6" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AACAAAAAAAACQAAAACAAAQAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ScriptParser.hpp</FileName>
