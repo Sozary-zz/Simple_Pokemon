@@ -13,6 +13,9 @@ class FlagParser
 {
 public:
 	FlagParser();
+	bool checkFlag(std::string) const;
+	void setFlag(std::string, bool);
+	void save();
 	~FlagParser();
 private:
 	std::vector<Flag> m_flags;
