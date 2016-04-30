@@ -65,9 +65,12 @@ int ScriptParser::size() const
 
 string ScriptParser::getID(int n) const
 {
-	for (int i = 0; i < m_file.size(); ++i)
+
+	for (int i = 0; i < m_file[n].instructions.size(); ++i)
 		if (m_file[n].instructions[i].script_type == "03")
 			return m_file[n].instructions[i].optionnal_param;
+	
+		
 	return string("");
 }
 
