@@ -5,6 +5,10 @@ les offsets 0x01 sont ceux de dialogues (les deux derniers bits pour l id du dia
 les offsets 0x02 sont ceux des mouvements (3 et 4 eme bits == nb de mouvements, deux derniers direction (00->droite,01->bas,02->gauche,03->haut))
 les offsets 0x03 sont ceux pour les tetes de personnages (les 3 et 4eme bits pour son apparence, les deux derniers pour son orientation)
 les offsets 0x04 sont ceux pour les séquences initiales de mouvements (deux derniers bits pour l id dans le fichier deplacement initiaux)
+les offsets 0x05 sont ceux pour ordonner une operation sur un flag (les 3 et 4eme bits pour [setFlag/checkFlag][00/01] et les deux dernier pour le setFlag à [00/01])
+les offsets 0x06 sont ceux pour les GOTO (4 derniers bits pour le n° instruction)
+les offsets 0x07 sont ceux pour les CALL (4 derniers bits pour le n° instruction), les calls se terminent par des endCall et sont différents donc des gotos car ils reviennent ensuite de la où ils ont été appelé
+les offsets 0x08 sont ceux pour les ENDCALL
 
 /!\ Ordre de lecture des instructions:
 
