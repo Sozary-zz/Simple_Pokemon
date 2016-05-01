@@ -27,9 +27,6 @@ Game::Game(const char * ini, int map_start) :
 	m_joueur.m_anim_player.animated_sprite.stop();
 	m_joueur.changeCurrentAnimation(BAS);
 	m_view=View(FloatRect(0, 0, 20 * 16, 20 * 16)); // a gérer
-	m_flags.setFlag("FFF", true);
-	m_flags.save();
-
 
 }
 
