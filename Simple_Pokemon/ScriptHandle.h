@@ -3,7 +3,7 @@
 #include "MsgBox.h"
 #include <fstream>
 #include <sstream>
-
+#include "FlagParser.h"
 
 struct ScriptHeap
 {
@@ -20,11 +20,13 @@ public:
 	void loadScript(Script); // le script  DOIT  forcément etre trié (une pile, c est une pile, un point c est tout)
 	void executeHeap(MsgBox*,bool*); //  d autres param incoming!
 	void next_action(bool*);
+	FlagParser m_flags;
 	~ScriptHandle();
 private:
 	ScriptHeap m_script_heap;
 	MsgBox* m_msgbox;
 	std::vector<std::string> m_file;
+
 private:
 	int hexToInt(std::string);
 };

@@ -2,7 +2,7 @@
 #include "TileMap.hpp"
 #include "ScriptHandle.h"
 #include "Collision.h"
-#include "FlagParser.h"
+
 
 #define GAME_FPS 50
 
@@ -32,7 +32,7 @@ private:
 	MsgBox m_msg_box;
 	bool m_must_wait;
 	ScriptHandle m_current;
-	FlagParser m_flags;
+	
 
 	
 

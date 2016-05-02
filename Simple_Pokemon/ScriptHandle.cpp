@@ -37,8 +37,8 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 	
 	for (int i = 0; i < m_script_heap.instruction_list.size(); ++i)
 	{
-	
-		if (m_script_heap.instruction_list[i].script_type == "01")//un dialogue
+		auto type = m_script_heap.instruction_list[i].script_type;
+		if (type == "01")//un dialogue
 		{
 		
 			m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[i].param)]); // pbm scripts
@@ -46,6 +46,12 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 			*wait = true;
 			
 		}
+		else if (type == "05")
+			m_flags.setFlag(m_script_heap.instruction_list[i].optionnal_param[1] + m_script_heap.instruction_list[i].param,
+				(m_script_heap.instruction_list[i].optionnal_param[0] == '1'));
+			
+			
+		
 	}
 	m_script_heap = {};
 
