@@ -59,7 +59,7 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		{
 			if (m_conditional_stockage)
 			{
-				
+				cout << "vrai" << endl;
 				cursor += hexToInt(m_script_heap.instruction_list[cursor].optionnal_param);
 				m_current_cursor_place += hexToInt(m_script_heap.instruction_list[cursor].optionnal_param);
 				m_conditional_stockage = false;
@@ -67,6 +67,7 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 				
 			else
 			{
+				cout << "faux" << endl;
 				cursor += hexToInt(m_script_heap.instruction_list[cursor].param);
 				m_current_cursor_place += hexToInt(m_script_heap.instruction_list[cursor].param);
 				m_conditional_stockage = false;
@@ -77,6 +78,7 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		cursor++;
 		m_current_cursor_place++;
 	}
+	
 	m_current_cursor_place = 0;
 	m_script_heap = {};
 
