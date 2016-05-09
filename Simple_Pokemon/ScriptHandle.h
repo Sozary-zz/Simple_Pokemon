@@ -27,6 +27,7 @@ private:
 	MsgBox* m_msgbox;
 	std::vector<std::string> m_file;
 	bool m_conditional_stockage;
+	int m_current_cursor_place;
 
 private:
 	int hexToInt(std::string);

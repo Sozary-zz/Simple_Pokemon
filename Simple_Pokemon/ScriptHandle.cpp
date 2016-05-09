@@ -2,7 +2,7 @@
 
 using namespace std;
 
-ScriptHandle::ScriptHandle():m_msgbox(nullptr), m_conditional_stockage(false)
+ScriptHandle::ScriptHandle():m_msgbox(nullptr), m_conditional_stockage(false), m_current_cursor_place(0)
 {
 	ifstream fichier("data/dialogues.dial", ios::in);
 	//creer un objet msgBox
@@ -34,15 +34,14 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 	
 
 	m_msgbox = msgBox;
-	int cursor = 0;
+	int cursor = (m_current_cursor_place != 0) ? m_current_cursor_place : 0;
 
 	while(cursor < m_script_heap.instruction_list.size())
 	{
-		cout << cursor << endl;
 		auto type = m_script_heap.instruction_list[cursor].script_type;
 		if (type == "01")//un dialogue
 		{
-			cout << m_file[hexToInt(m_script_heap.instruction_list[cursor].param)] << endl;
+			//cout << m_file[hexToInt(m_script_heap.instruction_list[cursor].param)] << endl;
 			m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[cursor].param)]); 
 			m_msgbox->setDrawable(true);
 			*wait = true;
@@ -63,20 +62,22 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 			{
 				
 				cursor += hexToInt(m_script_heap.instruction_list[cursor].optionnal_param);
-			
+				m_current_cursor_place += hexToInt(m_script_heap.instruction_list[cursor].optionnal_param);
 			}
 				
 			else
 			{
 				cursor += hexToInt(m_script_heap.instruction_list[cursor].param);
+				m_current_cursor_place += hexToInt(m_script_heap.instruction_list[cursor].param);
 			
 			}
 				
 		}
 
 		cursor++;
-		
+		m_current_cursor_place++;
 	}
+	m_current_cursor_place = 0;
 	m_script_heap = {};
 
 
@@ -88,6 +89,7 @@ void ScriptHandle::next_action(bool* wait)
 	m_msgbox->changeMsg();
 	if (m_msgbox->isFinish())
 	{
+		m_current_cursor_place++;
 		*wait = false;
 		m_msgbox = nullptr;
 	}
