@@ -41,7 +41,6 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		auto type = m_script_heap.instruction_list[cursor].script_type;
 		if (type == "01")//un dialogue
 		{
-			//cout << m_file[hexToInt(m_script_heap.instruction_list[cursor].param)] << endl;
 			m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[cursor].param)]); 
 			m_msgbox->setDrawable(true);
 			*wait = true;
@@ -63,13 +62,14 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 				
 				cursor += hexToInt(m_script_heap.instruction_list[cursor].optionnal_param);
 				m_current_cursor_place += hexToInt(m_script_heap.instruction_list[cursor].optionnal_param);
+				m_conditional_stockage = false;
 			}
 				
 			else
 			{
 				cursor += hexToInt(m_script_heap.instruction_list[cursor].param);
 				m_current_cursor_place += hexToInt(m_script_heap.instruction_list[cursor].param);
-			
+				m_conditional_stockage = false;
 			}
 				
 		}
