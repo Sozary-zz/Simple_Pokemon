@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AnimatedSprite" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ADAAAxAChAAIAAEAAAJAAAAAAAKgAAAUIAAkAAQNIAA=</HashCode>
+      <FileName>C:\Users\Sozary\Desktop\Ancien bureau\Programmation #3\SFML\Animation\SFML Project Template (VS2015)1\SFML Project Template (VS2015)1\AnimatedSprite.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animation" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAQAAAJAAAAAggAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Sozary\Desktop\Ancien bureau\Programmation #3\SFML\Animation\SFML Project Template (VS2015)1\SFML Project Template (VS2015)1\Animation.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collision" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAICAAAAAAAAAAAAAYAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Collision.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAgAAACAACAAAAAAEQAAgIAjIAAAACAQAAlA0QAg=</HashCode>
+      <FileName>Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="8.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAIAAAAAAAIAAIAAAAIIAAAAABACAQAAABA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScriptHandle" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgAAAAAgAAAAAAAAAAAAACAAAgAEAAABAAAAEAgAAA=</HashCode>
+      <FileName>ScriptHandle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapParser" Collapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgACAQAAAAAABAAAAAAACAYAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>MapParser.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScriptParser" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAIAAAACAQAEAAAAAAAAAAAAAgIA=</HashCode>
+      <FileName>ScriptParser.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileMap" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABIAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TileMap.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MsgBox" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAgQALAEAhgIAAAIADAQAAABEAAAAhEAAAAAAAAA=</HashCode>
+      <FileName>MsgBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="SAnimation" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAACEAAgAAAAQIAACAQAQAAAAA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ScriptHeap" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAQAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>ScriptHandle.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Position" Collapsed="true">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Utility.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Node" Collapsed="true">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIBAAAAAAAAAAABQAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Utility.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Offset">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAACQAAAACAAAQAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScriptParser.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Script" Collapsed="true">
+    <Position X="4.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQACAAAAAAAAAA=</HashCode>
+      <FileName>ScriptParser.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="DIRECTION" Collapsed="true">
+    <Position X="4.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAACAAIAAAAAQAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>ScriptParser.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
