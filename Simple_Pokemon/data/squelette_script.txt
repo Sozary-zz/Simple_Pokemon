@@ -8,8 +8,8 @@ les offsets 0x04 sont ceux pour les séquences initiales de mouvements (deux dern
 les offsets 0x05 sont ceux pour ordonner un setFlag (les 3eme bits pour [true/false][00/01] et les trois dernier pour son ID)
 les offsets 0x06 sont ceux pour ordonner un checkflag (les trois dernier pour son ID)
 les offsets 0x07 sont ceux pour les GOTO (4 derniers bits pour le n° instruction)
-les offsets 0x08 sont ceux pour les CALL (4 derniers bits pour le n° instruction), les calls se terminent par des endCall et sont différents donc des gotos car ils reviennent ensuite de la où ils ont été appelé
-les offsets 0x09 sont ceux pour les ENDCALL
+les offsets 0x08 sont ceux pour les IF (2 et 3 eme bits pours le nb de conditions a sauter si vrai, les derniers bits pours le nb de cond a sauter si faux)
+
 
 /!\ Ordre de lecture des instructions:
 

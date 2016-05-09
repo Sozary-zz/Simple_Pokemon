@@ -2,7 +2,7 @@
 
 using namespace std;
 
-ScriptHandle::ScriptHandle():m_msgbox(nullptr)
+ScriptHandle::ScriptHandle():m_msgbox(nullptr), m_conditional_stockage(false)
 {
 	ifstream fichier("data/dialogues.dial", ios::in);
 	//creer un objet msgBox
@@ -34,23 +34,45 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 	
 
 	m_msgbox = msgBox;
-	
-	for (int i = 0; i < m_script_heap.instruction_list.size(); ++i)
+	int cursor = 0;
+
+	while(cursor < m_script_heap.instruction_list.size())
 	{
-		auto type = m_script_heap.instruction_list[i].script_type;
+		auto type = m_script_heap.instruction_list[cursor].script_type;
 		if (type == "01")//un dialogue
 		{
-		
-			m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[i].param)]); // pbm scripts
+			cout << m_file[hexToInt(m_script_heap.instruction_list[cursor].param)] << endl;
+			m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[cursor].param)]); // pbm scripts
 			m_msgbox->setDrawable(true);
 			*wait = true;
-			
+
 		}
-		else if (type == "05")
-			m_flags.setFlag(m_script_heap.instruction_list[i].optionnal_param[1] + m_script_heap.instruction_list[i].param,
-				(m_script_heap.instruction_list[i].optionnal_param[0] == '1'));
+		else if (type == "05") // setFlag
+
+			m_flags.setFlag(m_script_heap.instruction_list[cursor].optionnal_param[1] + m_script_heap.instruction_list[cursor].param,
+			(m_script_heap.instruction_list[cursor].optionnal_param[0] == '1'));
+		else if (type == "06") // checkFlag
+			m_conditional_stockage = m_flags.checkFlag(m_script_heap.instruction_list[cursor].optionnal_param[1] + m_script_heap.instruction_list[cursor].param);
+		else if (type == "07") // GOTO
+			cursor = hexToInt(m_script_heap.instruction_list[cursor].optionnal_param + m_script_heap.instruction_list[cursor].param);
+		else if (type == "08") // IF
+		{
+			if (m_conditional_stockage)
+			{
+				
+				cursor += hexToInt(m_script_heap.instruction_list[cursor].optionnal_param);
 			
+			}
+				
+			else
+			{
+				cursor += hexToInt(m_script_heap.instruction_list[cursor].param);
 			
+			}
+				
+		}
+
+		cursor++;
 		
 	}
 	m_script_heap = {};

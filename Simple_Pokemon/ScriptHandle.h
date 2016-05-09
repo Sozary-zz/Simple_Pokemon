@@ -26,6 +26,7 @@ private:
 	ScriptHeap m_script_heap;
 	MsgBox* m_msgbox;
 	std::vector<std::string> m_file;
+	bool m_conditional_stockage;
 
 private:
 	int hexToInt(std::string);

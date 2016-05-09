@@ -35,8 +35,10 @@ void FlagParser::setFlag(std::string flag, bool state)
 
 void FlagParser::save()
 {
+	
 	ofstream fichier("data/flags.flag", ios::out | ios::trunc);
 	for (int i = 0; i < m_flags.size(); ++i)
+
 		fichier << "0x" << (m_flags[i].activated) << m_flags[i].ID << endl;
 	fichier.close();
 }

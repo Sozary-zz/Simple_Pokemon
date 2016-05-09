@@ -123,6 +123,8 @@ sf::Int32 MsgBox::getElapsed() const
 
 
 
+
+
 void MsgBox::clear()
 {
 	m_can_be_drawn = false;   m_draw_next = false; m_finished = false; m_enable_next_time=true;

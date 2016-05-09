@@ -166,7 +166,7 @@ void Game::processEvent()
 	{
 		switch (event.type)
 		{
-			case Event::Closed:m_current.m_flags.save();  m_window.close(); break;// on save les flags
+			case Event::Closed: m_current.m_flags.save();  m_window.close(); break;// on save les flags
 			case Event::KeyPressed:
 				
 				switch (event.key.code)
