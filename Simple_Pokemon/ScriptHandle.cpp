@@ -41,13 +41,13 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		auto type = m_script_heap.instruction_list[cursor].script_type;
 		if (type == "01")//un dialogue
 		{
-			cout << "On veut mettre un dialogue" << endl;
+			
 			if (m_current_if_cond)
 			{
-				cout << "On est dans un if" << endl;
+			
 				if ((m_conditional_stockage && m_if_state)||(!m_conditional_stockage && !m_if_state))
 				{
-					cout << "	On a l accord" << endl;
+				
 					m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[cursor].param)]);
 					m_msgbox->setDrawable(true);
 					*wait = true;
@@ -57,7 +57,7 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 			}
 			else
 			{
-				cout << "On n'est pas dans un if" << endl;
+				
 				m_msgbox->addContent(m_file[hexToInt(m_script_heap.instruction_list[cursor].param)]);
 				m_msgbox->setDrawable(true);
 				*wait = true;
@@ -71,17 +71,17 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 			
 			if (m_current_if_cond)
 			{
-				cout << "	On veut mettre un flag" << endl;
+				
 				if ((m_conditional_stockage && m_if_state) || (!m_conditional_stockage && !m_if_state))
 				{
-					cout << "	On a l accord" << endl;
+					
 					m_flags.setFlag(m_script_heap.instruction_list[cursor].optionnal_param[1] + m_script_heap.instruction_list[cursor].param,
 						(m_script_heap.instruction_list[cursor].optionnal_param[0] == '1'));
 				}
 			}
 			else
 			{
-				cout << "On n'est pas dans un if" << endl;
+				
 				m_flags.setFlag(m_script_heap.instruction_list[cursor].optionnal_param[1] + m_script_heap.instruction_list[cursor].param,
 					(m_script_heap.instruction_list[cursor].optionnal_param[0] == '1'));
 			}
@@ -93,16 +93,14 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 			{
 				if ((m_conditional_stockage && m_if_state) || (!m_conditional_stockage && !m_if_state))
 				{
-					cout << "	Verifie " << m_script_heap.instruction_list[cursor].optionnal_param[1] + m_script_heap.instruction_list[cursor].param << endl;
 					m_conditional_stockage = m_flags.checkFlag(m_script_heap.instruction_list[cursor].optionnal_param[1] + m_script_heap.instruction_list[cursor].param);
 
 				}
 			}
 			else
 			{
-				cout << "Verifie " << m_script_heap.instruction_list[cursor].optionnal_param[1] + m_script_heap.instruction_list[cursor].param << endl;
 				m_conditional_stockage = m_flags.checkFlag(m_script_heap.instruction_list[cursor].optionnal_param[1] + m_script_heap.instruction_list[cursor].param);
-				cout << ((m_conditional_stockage)?"Resultat vrai":"Resultat faux") << endl;
+				
 			}
 		}
 		else if (type == "07") // GOTO
@@ -125,32 +123,32 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		{
 			if (m_script_heap.instruction_list[cursor].param == "01")
 			{
-				cout << "On cherche a verifier que la variable conditionelle soit vraie" << endl;
+				
 				if (m_conditional_stockage)
 				{
-					cout << "Elle l'est" << endl;
+					
 					m_if_state = true;
 					m_current_if_cond = true;
 				}
 				else // on doit sauter jusqu au prochain endif
 				{
-					cout << "On doit sauter les lignes jusqu au prochain ENDIF" << endl;
+					
 					auto tmp_curs = jumpUntilNewENDIF(cursor);
 					cursor = (tmp_curs == -1) ? cursor : tmp_curs;
 				}
 			}
 			else
 			{
-				cout << "On cherche a verifier que la variable conditionelle soit fausse" << endl;
+				
 				if (!m_conditional_stockage)
 				{
-					cout << "Elle l'est" << endl;
+					
 					m_if_state = false;
 					m_current_if_cond = true;
 				}
 				else // on doit sauter jusqu au prochain endif
 				{
-					cout << "On doit sauter les lignes jusqu au prochain ENDIF" << endl;
+					
 					auto tmp_curs = jumpUntilNewENDIF(cursor);
 					cursor = (tmp_curs == -1) ? cursor : tmp_curs;
 				}
@@ -160,7 +158,7 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		}
 		else if (type == "09")
 		{
-			cout << "Fermeture du if" << endl<<endl;
+			
 			m_current_if_cond = false;
 			m_conditional_stockage = false;
 		}
@@ -170,7 +168,7 @@ void ScriptHandle::executeHeap(MsgBox *msgBox,bool* wait)
 		cursor++;
 		m_current_cursor_place++;
 	}
-	cout << "Fin de script" << endl;
+	
 	m_current_cursor_place = 0;
 	m_script_heap = {};
 
