@@ -28,8 +28,12 @@ private:
 	std::vector<std::string> m_file;
 	bool m_conditional_stockage;
 	int m_current_cursor_place;
+	bool m_current_if_cond;
+	bool m_if_state;
+
 
 private:
 	int hexToInt(std::string);
+	int jumpUntilNewENDIF(int);
 };
 
